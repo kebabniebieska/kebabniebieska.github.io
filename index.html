@@ -1592,6 +1592,12 @@
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
 
+  // Sticky header shadow on scroll
+  const hdr = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    hdr.style.boxShadow = window.scrollY > 10 ? '0 4px 30px rgba(0,0,0,.4)' : 'none';
+  }, { passive: true });
+
   // Simple intersection observer for scroll-reveal
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
